@@ -24,7 +24,7 @@ public class movement_sprite_side : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log("hello");
+        Debug.Log("hello2");
         if (IsGrounded() && Input.GetKeyDown("space"))
         {
             jumpmove = new Vector2(0f,big_jump);
