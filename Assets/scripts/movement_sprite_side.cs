@@ -14,6 +14,7 @@ public class movement_sprite_side : MonoBehaviour
     public float moveHorizontal;
     private bool in_door;
     public float deurnr;
+    public bool holding_item = false;
     void Awake()
     {
     boxCollider2d = transform.GetComponent<BoxCollider2D>();
