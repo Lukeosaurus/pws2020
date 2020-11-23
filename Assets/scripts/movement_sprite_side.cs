@@ -15,6 +15,10 @@ public class movement_sprite_side : MonoBehaviour
     private bool in_door;
     public float deurnr;
     public bool holding_item = false;
+    public bool hit_ghost = false;
+    public float hp = 50f;
+    public bool kill = false;
+    public GameObject enemy;
     void Awake()
     {
     boxCollider2d = transform.GetComponent<BoxCollider2D>();
@@ -41,7 +45,7 @@ public class movement_sprite_side : MonoBehaviour
         }
         if (in_door)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
             {
             GameObject other = GameObject.Find("up_test_sprite");
             other.GetComponent<movement_sprite_up>().enabled = true;
@@ -66,6 +70,46 @@ public class movement_sprite_side : MonoBehaviour
             my.GetComponent<movement_sprite_side>().enabled = false;
             }
         }
+        if (hit_ghost)
+        {
+            GameObject my = GameObject.Find("test_sprite");
+            if (holding_item && Input.GetMouseButtonDown(0))
+            {
+                if (my.GetComponent<attack_side_script>().fire_abilety == true)
+                {
+                    kill = true;
+                    hp = 50;
+                }
+                else
+                {
+                    if (hp>0f)
+                    {
+                        hp -=1;
+                    }
+                    if (hp == 0f)
+                    {
+                        Debug.Log("die");
+                    }
+                }
+            }
+            else
+            {
+                if (hp>0f)
+                {
+                    hp -=1;
+                }
+                if (hp == 0f)
+                {
+                    Debug.Log("die");
+                }
+                
+            }
+
+        }
+        if(kill)
+        {
+            enemy.SetActive(false);
+        }
     } 
     private bool IsGrounded()
     {
@@ -89,7 +133,8 @@ public class movement_sprite_side : MonoBehaviour
         }
         if (collision.gameObject.tag =="ghost")
         {
-            Debug.Log("dead");
+            hit_ghost = true;
+            enemy = GameObject.Find(collision.gameObject.name);
         }
     }
     void OnTriggerExit2D(Collider2D collision)
@@ -97,6 +142,10 @@ public class movement_sprite_side : MonoBehaviour
         if (collision.gameObject.tag == "door")
         {
             in_door = false;
+        }
+        if (collision.gameObject.tag =="ghost")
+        {
+            hit_ghost = false;
         }
     }
     
