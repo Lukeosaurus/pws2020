@@ -16,6 +16,7 @@ public class movement_sprite_side : MonoBehaviour
     public float deurnr;
     public bool holding_item = false;
     public bool hit_ghost = false;
+    public bool hit_archer = false;
     public float hp = 50f;
     public bool kill = false;
     public GameObject enemy;
@@ -104,6 +105,41 @@ public class movement_sprite_side : MonoBehaviour
                 }
                 
             }
+        }
+        if (hit_archer)
+        {
+            GameObject my = GameObject.Find("test_sprite");
+            if (holding_item && Input.GetMouseButtonDown(0))
+            {
+                if (my.GetComponent<attack_side_script>().fire_abilety == false)
+                {
+                    kill = true;
+                    hp = 50;
+                }
+                else
+                {
+                    if (hp>0f)
+                    {
+                        hp -=1;
+                    }
+                    if (hp == 0f)
+                    {
+                        Debug.Log("die");
+                    }
+                }
+            }
+            else
+            {
+                if (hp>0f)
+                {
+                    hp -=1;
+                }
+                if (hp == 0f)
+                {
+                    Debug.Log("die");
+                }
+                
+            }
 
         }
         if(kill)
@@ -134,6 +170,11 @@ public class movement_sprite_side : MonoBehaviour
         if (collision.gameObject.tag =="ghost")
         {
             hit_ghost = true;
+            enemy = GameObject.Find(collision.gameObject.name);
+        }
+        if (collision.gameObject.tag =="archer")
+        {
+            hit_archer = true;
             enemy = GameObject.Find(collision.gameObject.name);
         }
     }

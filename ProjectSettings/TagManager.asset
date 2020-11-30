@@ -7,6 +7,7 @@ TagManager:
   - player
   - door
   - ghost
+  - archer
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - 
   - play_ground
   - player
-  - 
+  - bull_cage
   - 
   - 
   - 
