@@ -7,7 +7,6 @@ public class bull : MonoBehaviour
     public bool base_movement_up;
     public bool base_movement_side;
     public float speed;
-    public float charge_speed;
     private float side_speed;
     private float up_speed;
     public Rigidbody2D rb2d;
@@ -16,8 +15,10 @@ public class bull : MonoBehaviour
     public Transform target;
     public bool enemy_spoted;
     private float timer = 0;
-    private bool charge = false;
+    public bool charge = false;
     Vector3 old_enemy_direction;
+    private float stun_timer = 0;
+    private bool stun;
     
     void Awake()
     {
@@ -41,34 +42,65 @@ public class bull : MonoBehaviour
         if(hits_up())
         {
             up_speed = -speed;
-            charge = false;
             enemy_spoted = false;
+            if(charge)
+            {
+                boxCollider2d.isTrigger = false;
+                stun = true;
+                charge = false;
+            }
         }
         if(hits_down())
         {
             up_speed = speed;
-            charge = false;
             enemy_spoted = false;
+            if(charge)
+            {
+                boxCollider2d.isTrigger = false;
+                charge = false;
+                stun = true;
+            }
         }
         if(hits_left())
         {
             side_speed = speed;
-            charge = false;
             enemy_spoted = false;
+            if(charge)
+            {
+                boxCollider2d.isTrigger = false;
+                stun = true;
+                charge = false;
+            }
         }
         if(hits_right())
         {
             side_speed = -speed;
-            charge = false;
+            
             enemy_spoted = false;
+            if(charge)
+            {
+                boxCollider2d.isTrigger = false;
+                charge = false;
+                stun = true;
+            }
         }
-
+        if (stun)
+        {
+            stun_timer += Time.deltaTime;
+                if(stun_timer>1)
+                {
+                    boxCollider2d.isTrigger = true;
+                    stun_timer = 0;
+                    stun = false;
+                }
+        }
     }
     void FixedUpdate()
     {
-        if(!enemy_spoted && !charge)
+        if(!enemy_spoted && !charge && !stun)
         {
             rb2d.velocity = new Vector2(side_speed,up_speed);
+            timer = 0;
         }
         if(enemy_spoted)
         {
@@ -82,29 +114,16 @@ public class bull : MonoBehaviour
                 if(!charge)
                 {
                 charge = true;
-                float step = charge_speed;
-                old_enemy_direction =  Vector3.MoveTowards(transform.position, target.position, step) - transform.position;
+                old_enemy_direction =  Vector3.MoveTowards(transform.position, target.position, 1) - transform.position;
                 }
             }
         }
         if (charge)
         {
+            transform.position += old_enemy_direction/100 ;
+            old_enemy_direction += old_enemy_direction*0.05f;
             
-            transform.position += old_enemy_direction ;
             timer = 0;
-            Debug.Log(rb2d.velocity);
-            //if(transform.position == old_enemy_pos)
-            //{
-            //    charge = false;
-            //    enemy_spoted = false;
-            //}
-        }
-    }
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "door")
-        {
-            
         }
     }
     float extraHeight = 0.1f; 
