@@ -145,6 +145,7 @@ public class movement_sprite_side : MonoBehaviour
         if(kill)
         {
             enemy.SetActive(false);
+            kill = false;
         }
     } 
     private bool IsGrounded()
@@ -170,13 +171,22 @@ public class movement_sprite_side : MonoBehaviour
         if (collision.gameObject.tag =="ghost")
         {
             hit_ghost = true;
+            hit_archer = false;
             enemy = GameObject.Find(collision.gameObject.name);
         }
         if (collision.gameObject.tag =="archer")
         {
             hit_archer = true;
+            hit_ghost = false;
             enemy = GameObject.Find(collision.gameObject.name);
         }
+        else
+        {
+            hit_ghost = false;
+            hit_archer = false;
+
+        }
+
     }
     void OnTriggerExit2D(Collider2D collision)
     {
