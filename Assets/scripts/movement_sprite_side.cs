@@ -20,6 +20,7 @@ public class movement_sprite_side : MonoBehaviour
     public float hp = 50f;
     public bool kill = false;
     public GameObject enemy;
+    public GameObject mybutton;
     void Awake()
     {
     boxCollider2d = transform.GetComponent<BoxCollider2D>();
@@ -45,30 +46,33 @@ public class movement_sprite_side : MonoBehaviour
             mySpriteRenderer.flipX = false;
         }
         if (in_door)
-        {
-            if (Input.GetMouseButtonDown(1))
+        {   
+            if (mybutton.GetComponent<button>().pressed == true)
             {
-            GameObject other = GameObject.Find("up_test_sprite");
-            other.GetComponent<movement_sprite_up>().enabled = true;
+                if (Input.GetMouseButtonDown(1))
+                {
+                GameObject other = GameObject.Find("up_test_sprite");
+                other.GetComponent<movement_sprite_up>().enabled = true;
 
-            GameObject up_door = GameObject.Find("up deur");
-            GameObject up_door1 = GameObject.Find("up deur (1)");
-            if (deurnr == 0)
-            {
-                other.transform.position = up_door.transform.position;
-            } 
-            if (deurnr ==1)
-            {
-                other.transform.position = up_door1.transform.position; 
-            }
+                GameObject up_door = GameObject.Find("up deur");
+                GameObject up_door1 = GameObject.Find("up deur (1)");
+                if (deurnr == 0)
+                {
+                    other.transform.position = up_door.transform.position;
+                } 
+                if (deurnr ==1)
+                {
+                    other.transform.position = up_door1.transform.position; 
+                }
 
-            GameObject Camera = GameObject.Find("Main Camera");
-            camer_changer camerachanger = Camera.GetComponent<camer_changer>();
-            camerachanger.topdown_view = true;
+                GameObject Camera = GameObject.Find("Main Camera");
+                camer_changer camerachanger = Camera.GetComponent<camer_changer>();
+                camerachanger.topdown_view = true;
 
-            GameObject my = GameObject.Find("test_sprite");
-            // hier wordt dit script gestopt allles wat belanrijk is moet hiervoor gebeuren 
-            my.GetComponent<movement_sprite_side>().enabled = false;
+                GameObject my = GameObject.Find("test_sprite");
+                // hier wordt dit script gestopt allles wat belanrijk is moet hiervoor gebeuren 
+                my.GetComponent<movement_sprite_side>().enabled = false;
+                }
             }
         }
         if (hit_ghost)
