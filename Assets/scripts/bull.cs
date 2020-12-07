@@ -41,7 +41,7 @@ public class bull : MonoBehaviour
     {
         if(hits_up())
         {
-            up_speed = -speed;
+            up_speed = -Mathf.Abs(up_speed);
             enemy_spoted = false;
             if(charge)
             {
@@ -52,7 +52,7 @@ public class bull : MonoBehaviour
         }
         if(hits_down())
         {
-            up_speed = speed;
+            up_speed = Mathf.Abs(up_speed);
             enemy_spoted = false;
             if(charge)
             {
@@ -63,7 +63,7 @@ public class bull : MonoBehaviour
         }
         if(hits_left())
         {
-            side_speed = speed;
+            side_speed = Mathf.Abs(side_speed);
             enemy_spoted = false;
             if(charge)
             {
@@ -74,7 +74,7 @@ public class bull : MonoBehaviour
         }
         if(hits_right())
         {
-            side_speed = -speed;
+            side_speed = -Mathf.Abs(side_speed);
             
             enemy_spoted = false;
             if(charge)

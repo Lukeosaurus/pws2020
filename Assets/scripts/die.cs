@@ -40,9 +40,15 @@ public class die : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "arrow" || collision.gameObject.tag == "bull")
+        if (collision.gameObject.tag == "arrow")
         {
             SceneManager.LoadScene(thisscene);
+            Debug.Log("yes");
+        }
+        if(collision.gameObject.tag == "bull")
+        {
+            SceneManager.LoadScene(thisscene);
+            Debug.Log("yes");
         }
         if (collision.gameObject.tag == "ghost")
         {

@@ -31,7 +31,7 @@ public class shooting : MonoBehaviour
                 mySpriteRenderer.flipX = false;
                 wapon_renderer.flipX = false;
                 ammo_renderer.flipX = false;
-                if (shot_timer > 3)
+                if (shot_timer > 1)
                 {
                     ammo.SetActive(true);
                     ammo.GetComponent<arrow>().left = false;
@@ -46,7 +46,7 @@ public class shooting : MonoBehaviour
                 mySpriteRenderer.flipX = true;
                 wapon_renderer.flipX = true;   
                 ammo_renderer.flipX = true; 
-                if (shot_timer > 3)
+                if (shot_timer > 1)
                 {
                     ammo.SetActive(true);
                     ammo.GetComponent<arrow>().left = true;
