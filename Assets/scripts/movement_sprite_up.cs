@@ -22,6 +22,7 @@ public class movement_sprite_up : MonoBehaviour
             {
             GameObject other = GameObject.Find("test_sprite");
             other.GetComponent<movement_sprite_side>().enabled = true;
+            other.GetComponent<die>().enabled = true;
 
             GameObject side_door = GameObject.Find("side deur");
             GameObject side_door1 = GameObject.Find("side deur (1)");

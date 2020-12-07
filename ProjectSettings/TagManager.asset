@@ -9,6 +9,7 @@ TagManager:
   - ghost
   - archer
   - bull
+  - arrow
   layers:
   - Default
   - TransparentFX

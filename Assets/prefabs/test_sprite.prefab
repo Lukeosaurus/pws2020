@@ -160,6 +160,7 @@ MonoBehaviour:
   kill: 0
   enemy: {fileID: 3418455536913099053}
   mybutton: {fileID: 0}
+  myself: {fileID: 3418455536913099053}
 --- !u!114 &3418455536913099049
 MonoBehaviour:
   m_ObjectHideFlags: 0

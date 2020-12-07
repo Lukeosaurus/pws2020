@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/levelworld.unity
     guid: 2568be058da55eb4c98db2b8b4ad23f1
   - enabled: 1
+    path: Assets/Scenes/end.unity
+    guid: 56750e6b506489842803194b153940a3
+  - enabled: 1
     path: Assets/Scenes/SampleScene 1.unity
     guid: 88aaa16cf16e0254b8385d50b4bd7ded
   m_configObjects: {}

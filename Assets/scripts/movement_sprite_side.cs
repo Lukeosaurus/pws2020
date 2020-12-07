@@ -21,6 +21,7 @@ public class movement_sprite_side : MonoBehaviour
     public bool kill = false;
     public GameObject enemy;
     public GameObject mybutton;
+    public GameObject myself;
     void Awake()
     {
     boxCollider2d = transform.GetComponent<BoxCollider2D>();
@@ -56,20 +57,21 @@ public class movement_sprite_side : MonoBehaviour
 
                 GameObject up_door = GameObject.Find("up deur");
                 GameObject up_door1 = GameObject.Find("up deur (1)");
-                if (deurnr == 0)
-                {
-                    other.transform.position = up_door.transform.position;
-                } 
-                if (deurnr ==1)
-                {
-                    other.transform.position = up_door1.transform.position; 
-                }
+                    if (deurnr == 0)
+                    {
+                        other.transform.position = up_door.transform.position;
+                    } 
+                    if (deurnr ==1)
+                    {
+                        other.transform.position = up_door1.transform.position; 
+                    }
 
                 GameObject Camera = GameObject.Find("Main Camera");
                 camer_changer camerachanger = Camera.GetComponent<camer_changer>();
                 camerachanger.topdown_view = true;
 
                 GameObject my = GameObject.Find("test_sprite");
+                my.GetComponent<die>().enabled = false;
                 // hier wordt dit script gestopt allles wat belanrijk is moet hiervoor gebeuren 
                 my.GetComponent<movement_sprite_side>().enabled = false;
                 }
@@ -82,32 +84,8 @@ public class movement_sprite_side : MonoBehaviour
             {
                 if (my.GetComponent<attack_side_script>().fire_abilety == true)
                 {
-                    kill = true;
-                    hp = 50;
-                }
-                else
-                {
-                    if (hp>0f)
-                    {
-                        hp -=1;
-                    }
-                    if (hp == 0f)
-                    {
-                        Debug.Log("die");
-                    }
-                }
-            }
-            else
-            {
-                if (hp>0f)
-                {
-                    hp -=1;
-                }
-                if (hp == 0f)
-                {
-                    Debug.Log("die");
-                }
-                
+                    kill = true; 
+                } 
             }
         }
         if (hit_archer)
@@ -118,33 +96,8 @@ public class movement_sprite_side : MonoBehaviour
                 if (my.GetComponent<attack_side_script>().fire_abilety == false)
                 {
                     kill = true;
-                    hp = 50;
-                }
-                else
-                {
-                    if (hp>0f)
-                    {
-                        hp -=1;
-                    }
-                    if (hp == 0f)
-                    {
-                        Debug.Log("die");
-                    }
                 }
             }
-            else
-            {
-                if (hp>0f)
-                {
-                    hp -=1;
-                }
-                if (hp == 0f)
-                {
-                    Debug.Log("die");
-                }
-                
-            }
-
         }
         if(kill)
         {
@@ -184,13 +137,6 @@ public class movement_sprite_side : MonoBehaviour
             hit_ghost = false;
             enemy = GameObject.Find(collision.gameObject.name);
         }
-        else
-        {
-            hit_ghost = false;
-            hit_archer = false;
-
-        }
-
     }
     void OnTriggerExit2D(Collider2D collision)
     {
