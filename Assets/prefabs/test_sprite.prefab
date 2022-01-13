@@ -159,7 +159,8 @@ MonoBehaviour:
   hp: 5
   kill: 0
   enemy: {fileID: 3418455536913099053}
-  mybutton: {fileID: 0}
+  mybutton: {fileID: 2319221425509766935, guid: e354929f4e323594ea404c68eff47e49,
+    type: 3}
   myself: {fileID: 3418455536913099053}
 --- !u!114 &3418455536913099049
 MonoBehaviour:

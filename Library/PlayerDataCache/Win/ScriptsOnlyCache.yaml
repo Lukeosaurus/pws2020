@@ -14,10 +14,14 @@ ScriptsOnlyBuild:
     - go_level_world
     - in_range
     - item_holder
+    - levelschort
+    - menushortkut
     - movement_sprite_side
     - movement_sprite_up
     - playlevel
+    - quit
     - shooting
+    - shortkut
     - wood
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
@@ -120,6 +124,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14170}
     - Class: 114
       Script: {instanceID: 14280}
+    - Class: 114
+      Script: {instanceID: 45302}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -179,6 +185,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13662}
     - Class: 114
       Script: {instanceID: 14280}
+    - Class: 114
+      Script: {instanceID: 45302}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -268,6 +276,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14170}
     - Class: 114
       Script: {instanceID: 14280}
+    - Class: 114
+      Script: {instanceID: 45302}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -367,6 +377,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14170}
     - Class: 114
       Script: {instanceID: 14280}
+    - Class: 114
+      Script: {instanceID: 45302}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -466,6 +478,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14170}
     - Class: 114
       Script: {instanceID: 14280}
+    - Class: 114
+      Script: {instanceID: 45302}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -565,6 +579,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14170}
     - Class: 114
       Script: {instanceID: 14280}
+    - Class: 114
+      Script: {instanceID: 45302}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -664,6 +680,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14170}
     - Class: 114
       Script: {instanceID: 14280}
+    - Class: 114
+      Script: {instanceID: 45302}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -725,6 +743,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13662}
     - Class: 114
       Script: {instanceID: 14280}
+    - Class: 114
+      Script: {instanceID: 45302}
+    - Class: 114
+      Script: {instanceID: 55172}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -776,6 +798,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13662}
     - Class: 114
       Script: {instanceID: 14280}
+    - Class: 114
+      Script: {instanceID: 25796}
+    - Class: 114
+      Script: {instanceID: 43888}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1393,15 +1419,39 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: quit
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: shortkut
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: menushortkut
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: levelschort
   platform: 5
   scenePathNames:
   - Assets/Scenes/mainmenu.unity
   - Assets/Scenes/levelworld.unity
-  - Assets/Scenes/level 1.unity
-  - Assets/Scenes/level 2.unity
+  - Assets/Scenes/level 5.unity
   - Assets/Scenes/level 3.unity
   - Assets/Scenes/level 4.unity
-  - Assets/Scenes/level 5.unity
+  - Assets/Scenes/level 1.unity
+  - Assets/Scenes/level 2.unity
   - Assets/Scenes/end.unity
   - Assets/Scenes/SampleScene 1.unity
-  playerPath: C:/Users/luuks/OneDrive/pws/bulds/buld 1.0/hutsdungeons.exe
+  playerPath: C:/Users/luuks/OneDrive/pws/bulds/build 1.2/hutsdungeons.exe

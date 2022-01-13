@@ -12,7 +12,7 @@ public class attack_side_script : MonoBehaviour
     {
         if(holding_item)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.Return))
             {
                 attack = true;
             }

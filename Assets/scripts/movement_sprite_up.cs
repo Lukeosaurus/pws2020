@@ -18,7 +18,7 @@ public class movement_sprite_up : MonoBehaviour
         moveVertical = Input.GetAxis ("Vertical");  
         if (in_door)
         {
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetKeyDown(KeyCode.Return))
             {
             GameObject other = GameObject.Find("test_sprite");
             other.GetComponent<movement_sprite_side>().enabled = true;

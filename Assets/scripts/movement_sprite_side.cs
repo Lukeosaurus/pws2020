@@ -50,7 +50,7 @@ public class movement_sprite_side : MonoBehaviour
         {   
             if (mybutton.GetComponent<button>().pressed == true)
             {
-                if (Input.GetMouseButtonDown(1))
+                if (Input.GetKeyDown(KeyCode.Return))
                 {
                 GameObject other = GameObject.Find("up_test_sprite");
                 other.GetComponent<movement_sprite_up>().enabled = true;
@@ -80,7 +80,7 @@ public class movement_sprite_side : MonoBehaviour
         if (hit_ghost)
         {
             GameObject my = GameObject.Find("test_sprite");
-            if (holding_item && Input.GetMouseButtonDown(0))
+            if (holding_item && Input.GetKeyDown(KeyCode.Return))
             {
                 if (my.GetComponent<attack_side_script>().fire_abilety == true)
                 {
@@ -91,7 +91,7 @@ public class movement_sprite_side : MonoBehaviour
         if (hit_archer)
         {
             GameObject my = GameObject.Find("test_sprite");
-            if (holding_item && Input.GetMouseButtonDown(0))
+            if (holding_item && Input.GetKeyDown(KeyCode.Return))
             {
                 if (my.GetComponent<attack_side_script>().fire_abilety == false)
                 {

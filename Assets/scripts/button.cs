@@ -13,7 +13,7 @@ public class button : MonoBehaviour
     {
         if(onbutton)
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.Return))
             {
                 if(pressed)
                 {

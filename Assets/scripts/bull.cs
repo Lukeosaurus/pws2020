@@ -104,12 +104,12 @@ public class bull : MonoBehaviour
         }
         if(enemy_spoted)
         {
-            if(timer<5)
+            if(timer<3)
             {
                 rb2d.velocity = new Vector2(0,0);
                 timer += Time.deltaTime;
             }
-            if(timer>=5)
+            if(timer>=3)
             {
                 if(!charge)
                 {
